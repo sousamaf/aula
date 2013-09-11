@@ -4,41 +4,44 @@
 		xmlns:h="http://xmlns.jcp.org/jsf/html"
 		xmlns:f="http://xmlns.jcp.org/jsf/core"
 		xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<h:head>
-	<title>Index do Projeto Vazio</title>
-</h:head>
-<h:body>
+
+<ui:composition template="/templates/layout.xhtml">
+	<ui:define name="content">
+
     	<h2>Exemplo de validação e uso de ajax!</h2>
     		
 		   	<h:form>
-		   	<h:panelGrid columns="1"> 
-		   	   <h:inputText id="name" value="#{comum.name}" required="true" requiredMessage="Que tal informar seu nome?">	
-		   	   </h:inputText><h:message for="name"></h:message>
-		   	   <h:inputSecret id="pass" value="#{comum.pass}" required="true" 
-		   	   		requiredMessage="Que tal uma senha? Digite uma de fácil memorização."
-		   	   		validatorMessage="Utilize apenas caracteres alfa-numérios." >
-		   	   		<f:validateLength minimum="6" maximum="15"></f:validateLength>
-		   	   		<f:validateRegex pattern="[a-z0-9\-\_\.]"></f:validateRegex>
-		   	   </h:inputSecret><h:message for="pass"></h:message>
+		   	<h:panelGrid columns="2"> 
+		   	   <h:outputLabel value="Nome: "></h:outputLabel> <h:inputText id="name" value="#{comum.name}" required="true" requiredMessage="Que tal informar seu nome?">	
+		   	   </h:inputText>
 		   	   
+		   	   <h:outputText value=""></h:outputText><h:message for="name"></h:message>
+		   	   
+		   	   <h:outputLabel value="Senha: "></h:outputLabel> <h:inputSecret id="pass" value="#{comum.pass}" required="true" 
+		   	   		requiredMessage="Que tal uma senha? Digite uma de fácil memorização."
+		   	   		validatorMessage="O campo senha deve ter entre 6 e 15 digitos e utilizar apenas caracteres alfa-numérios.">
+		   	   		<f:validateLength minimum="6" ></f:validateLength>
+		   	   		<f:validateRegex pattern="[a-z0-9\-\_\.]"></f:validateRegex>
+		   	   </h:inputSecret>
+		   	   
+		   	   <h:outputText value=""></h:outputText><h:message for="pass"></h:message>
+		   	   </h:panelGrid>
+		   	   <h:panelGrid columns="3">
 				<h:commandButton value="Ajax Button">
 					<f:ajax execute="name" render="output" />
-					
 				</h:commandButton>
 				<h:commandButton value="Testa usuário">
 					<f:ajax execute="name" render="output2" />
-					
 				</h:commandButton>
 	
-	 		   	   <h:commandButton value="Welcome Me" action="home"></h:commandButton>
-			
+	 		   	<h:commandButton value="Welcome Me" action="home"></h:commandButton>
+				</h:panelGrid>	
 			
 			<h2><h:outputText id="output" value="#{comum.sayWelcome}" /></h2>
 			<h2><h:outputText id="output2" value="#{comum.validaNome}" /></h2>
-			</h:panelGrid>
+			
 		   	</h:form>
 		   	
-	   	
-</h:body>
-
+	</ui:define>
+</ui:composition>
 </html>

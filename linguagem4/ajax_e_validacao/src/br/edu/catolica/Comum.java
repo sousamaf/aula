@@ -29,7 +29,7 @@ public class Comum implements Serializable {
 			   return "";
 		   }else
 		   {
-			   return "Ajax message : Welcome " + name;
+			   return "Uai, é ajax : Welcome " + name;
 		   }
 	}	
 	public String getValidaNome()
