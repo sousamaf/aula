@@ -1,7 +1,7 @@
 Banco de Talentos
 =================
 
-Pequeno sistema para Banco de Talentos projetado e desenvolvido na disciplina de Linguagens de Programação IV do Curso de Sistemas de Informação.
+Pequeno sistema para Banco de Talentos projetado e desenvolvido na disciplina de Linguagens de Programação IV do Curso de Sistemas de Informação da Faculdade Católica do Tocantins.
 
 
 
