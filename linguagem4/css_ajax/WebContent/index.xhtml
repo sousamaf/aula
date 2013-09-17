@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/templates/layout.xhtml">
+	<ui:define name="title">
+		CSS e AJAX
+	</ui:define>
+	<ui:define name="corpo">
+		<h:body>
+			<ui:insert name="templates/menu.xhtml"></ui:insert>
+		</h:body>
+		<pre>
+Atividades:
+	Calculo de descontos:
+		1 - implementar a apresentação detalhada dos 
+			descontos.
+		2 - implementar a validação dos dados de entrada 
+			do formulário.
+		 
+	Conversor para segundos:
+		1 - implementar a validação dos dados.
+		
+	Novos formulários:
+		1 - Indique como um troco deve ser dado utilizando-se
+			um número mínimo de notas. Seu algoritmo deve 
+			ler o valor da conta a ser paga e o valor do 
+			pagamento efetuado desprezando os centavos. 
+			Suponha que as notas para troco sejam as de 
+			50, 20, 10, 5, 2 e 1 reais, e que nenhuma 
+			delas esteja em falta no caixa.
+		2 - Determine se um ano é bissexto. Construa um
+			formulário que o usuário possa inserir um ano
+			válido qualquer e o sistema indicará se é ou 
+			não um ano bissexto. 
+		</pre> 
+	</ui:define>
+</ui:composition>
+
+</html>

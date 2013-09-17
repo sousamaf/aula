@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+#container {
+	width: 770px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#banner {
+	float: left;
+	font-size: 25pt;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+#menu {
+	background-color:navy;
+	color:white;
+	min-height: 25px;
+	padding: 3px;
+	clear: both;
+}
+
+#corpo {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: 30px;
+}
+
+#rodape {
+	background-color:navy;
+	width:100%;
+	height: 100px;
+	margin-top: 5px;
+	padding: 10px;
+	text-aling: center;
+	color:white;
+}
