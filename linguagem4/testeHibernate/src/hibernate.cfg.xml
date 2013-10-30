@@ -18,7 +18,7 @@
   <property name="hibernate.format_sql">true</property>
   <property name="hibernate.generate_statistics">true</property>
   <property name="hibernate.hbm2ddl.auto">update</property>
-  <mapping class="br.edu.catolica.tabelas.Contatos"/>
+  <mapping class="br.edu.catolica.tabelas.Produtos"/>
 <!--   
   <mapping class="br.edu.catolica.tabelas.Competencias"/>
   <mapping class="br.edu.catolica.tabelas.Disciplinas"/>
