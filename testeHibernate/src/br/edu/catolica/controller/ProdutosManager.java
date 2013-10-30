@@ -19,7 +19,7 @@ public class ProdutosManager {
 	{
 		produtoRn.salvar(produto);
 		listar();
-		return "produto_listar";
+		return null;
 	}
 	
 	public String listar()

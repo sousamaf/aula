@@ -3,13 +3,8 @@ Servers
 .settings
 .classpath
 .project
-.class
-.jar
-
 *.class
-
 *.jar
-
 linguagem4/Questionarios/WebContent/META-INF/MANIFEST.MF
 
 linguagem4/Questionarios/WebContent/WEB-INF/faces-config.xml

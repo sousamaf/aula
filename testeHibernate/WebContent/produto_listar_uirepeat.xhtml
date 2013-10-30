@@ -9,7 +9,7 @@
 <ui:composition template="/templates/layout.xhtml">
 	<ui:define name="content">
 	    <h:form>
-	    		<h:commandLink value="Cadastrar produto" action="produto_cadastro"></h:commandLink><br></br>
+	    		<h:commandLink value="Início" action="index"></h:commandLink><br></br>
 
 				<h:outputText value="Lista de produtos"></h:outputText>
 	    		<h:commandButton value="Atualizar" action="#{produtosManager.listar}">
@@ -17,24 +17,15 @@
 	    		</h:commandButton>
 	    		<h:panelGroup id="lista">
 					<ui:repeat value="#{produtosManager.produtos}" var="prod">
-						<h:panelGrid columns="2">
+						<h:panelGrid columns="2" border="1">
 							<h:outputText for="nome" value="Nome: "></h:outputText>
 							<h:outputText id="nome" value="#{prod.nome}"></h:outputText>
 							<h:outputText for="descricao" value="Descrição: "></h:outputText>
 							<h:outputText id="descricao" value="#{prod.descricao}"></h:outputText>
 							<h:outputText for="preco" value="Preço: "></h:outputText>
-							<h:outputText id="preco" value="#{prod.preco}"></h:outputText>>
+							<h:outputText id="preco" value="#{prod.preco}"></h:outputText>
 						</h:panelGrid>
 					</ui:repeat>
-				</h:panelGroup>
-				<h:panelGroup id="lista2">
-					<h:dataTable value="#{produtosManager.produtos}" var="produto">
-					    <h:column>
-					        <h:link value="#{produto.nome}" outcome="produto">
-					            <f:param name="id" value="#{produto.id}" />
-					        </h:link>
-					    </h:column>
-					</h:dataTable>
 				</h:panelGroup>
 	    </h:form>
 	</ui:define>

@@ -4,23 +4,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:h="http://xmlns.jcp.org/jsf/html"
 		xmlns:f="http://xmlns.jcp.org/jsf/core"
-		xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/templates/layout.xhtml">
 	<ui:define name="content">
 	    <h:form>
-	    		<h:commandLink value="Exibir produtos" action="produto_listar"></h:commandLink><br></br>
+	    		<h:commandLink value="Início" action="index"></h:commandLink><br></br>
 				<h:outputText value="Cadastro de produtos"></h:outputText><br></br>
 				<h:panelGrid columns="2">
 					<h:outputText for="nome" value="Nome: "></h:outputText>
-					<h:inputText id="nome" value="#{produtosManager.produto.nome}"></h:inputText>
+					<p:inputText id="nome" value="#{produtosManager.produto.nome}"/>
 					<h:outputText for="descricao" value="Descrição: "></h:outputText>
-					<h:inputText id="descricao" value="#{produtosManager.produto.descricao}"></h:inputText>
+					<p:inputText id="descricao" value="#{produtosManager.produto.descricao}"/>
 					<h:outputText for="preco" value="Preço: "></h:outputText>
-					<h:inputText id="preco" value="#{produtosManager.produto.preco}"></h:inputText>
-					<h:commandButton value="Salvar" action="#{produtosManager.salvar}">
-					</h:commandButton>
-					<h:outputText value=""></h:outputText>
+					<p:inputText id="preco" value="#{produtosManager.produto.preco}"/>
+					<p:commandButton value="Salvar" action="#{produtosManager.salvar}">
+					</p:commandButton>
+					<h:outputText value=""/>
 				</h:panelGrid>
 	    </h:form>
 	</ui:define>
