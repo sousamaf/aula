@@ -2,7 +2,10 @@ package br.edu.catolica.controller;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
 
 import br.edu.catolica.tabelas.Produtos;
@@ -21,7 +24,11 @@ public class ProdutosManager {
 		listar();
 		return null;
 	}
-	
+	public void submit(ActionEvent event) {  
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Correct", "Correct");  
+          
+        FacesContext.getCurrentInstance().addMessage(null, msg);  
+    } 	
 	public String listar()
 	{
 		produtos = produtoRn.listar();

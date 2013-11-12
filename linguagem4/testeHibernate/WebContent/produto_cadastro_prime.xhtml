@@ -10,6 +10,7 @@
 <ui:composition template="/templates/layout.xhtml">
 	<ui:define name="content">
 	    <h:form>
+	    		<p:messages showDetail="true"/> 
 	    		<h:commandLink value="Início" action="index"></h:commandLink><br></br>
 				<h:outputText value="Cadastro de produtos"></h:outputText><br></br>
 				<h:panelGrid columns="2">
@@ -19,6 +20,10 @@
 					<p:inputText id="descricao" value="#{produtosManager.produto.descricao}"/>
 					<h:outputText for="preco" value="Preço: "></h:outputText>
 					<p:inputText id="preco" value="#{produtosManager.produto.preco}"/>
+					
+					<p:captcha label="Captcha"/>
+					<h:outputText value=""/>
+					<p:commandButton value="Check" ajax="false" actionListener="#{produtosManager.submit}" /> 
 					<p:commandButton value="Salvar" action="#{produtosManager.salvar}">
 					</p:commandButton>
 					<h:outputText value=""/>

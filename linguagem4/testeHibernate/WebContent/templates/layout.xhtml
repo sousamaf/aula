@@ -8,11 +8,11 @@
   <title><ui:insert name="title">Default title</ui:insert></title>
 </h:head>
 
-<body>
+<h:body>
 <ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
 
-<div id="head">
-    <ui:insert name="head">
+<div id="topo">
+    <ui:insert name="topo">
     	<!--  include your header file or uncomment the include below and create header.xhtml in this directory -->
     	<ui:include src="topo.xhtml"/> 
     </ui:insert>
@@ -36,6 +36,6 @@
   </ui:insert>
 </div>
 
-</body>
+</h:body>
 
 </html>

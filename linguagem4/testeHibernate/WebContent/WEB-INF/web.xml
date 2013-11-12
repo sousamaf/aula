@@ -18,6 +18,14 @@
     <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
     <param-value>resources.application</param-value>
   </context-param>
+	<context-param>
+	    <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+	    <param-value>6LdrKOoSAAAAAJae1z26YzlSTklg4w2hoPFPUZpV</param-value>
+	</context-param>
+	<context-param>
+	    <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+	    <param-value>6LdrKOoSAAAAAKmkB1S66fyJJNutqyPy-cLZNSEp</param-value>
+	</context-param>
   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
   </listener>
