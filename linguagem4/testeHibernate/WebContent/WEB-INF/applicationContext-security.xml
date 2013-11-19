@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns:sec="http://www.springframework.org/schema/security" 
+			xmlns="http://www.springframework.org/schema/beans" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:schemaLocation="http://www.springframework.org/schema/beans 
+				http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+				http://www.springframework.org/schema/security 
+				http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+		<sec:http use-expressions="true">
+			<sec:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMINISTRADOR')" />
+			<sec:intercept-url pattern="/projeto/**" access="hasAnyRole('ROLE_USUARIO','ROLE_ADMINISTRADOR')" />
+			<sec:intercept-url pattern="/avaliacao/**" access="hasAnyRole('ROLE_AVALIADOR', 'ROLE_ADMINISTRADOR')" />
+			<sec:form-login login-page="/login.jsf" 
+				always-use-default-target="true"
+				default-target-url="/index.html"
+				authentication-failure-url="/login.jsf?login_error=1" />
+			<sec:logout logout-success-url="/Inicio.jsf" delete-cookies="JSESSIONID"/>
+			<sec:session-management invalid-session-url="/login.jsf"/>
+			<sec:remember-me />	
+		</sec:http>
+		<sec:authentication-manager>
+			<sec:authentication-provider>
+				<sec:password-encoder hash="md5" />
+				<sec:jdbc-user-service data-source-ref="workshopDataSource" 
+					authorities-by-username-query="SELECT u.email as username, p.permissao as authority 
+						FROM contato u, contato_permissao p WHERE u.id = p.contato AND u.email = ? "
+					users-by-username-query="SELECT email, password, ativo FROM contato WHERE email = ? " />
+			</sec:authentication-provider>
+		</sec:authentication-manager>
+</beans>
+			
