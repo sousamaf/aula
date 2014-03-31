@@ -16,3 +16,5 @@ Arquitetura de Computadores II;
 Inteligência Artificial: Algoritmos Genéticos, Redes Neurais Artificiais, Lógica Fuzzy, KDD.
 
 Algoritmos e Estruturas de Dados - Python e suas estruturas.
+
+Algoritmos e Programação I - Unitins
