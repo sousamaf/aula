@@ -20,10 +20,11 @@ while True:
 		arquivo = open('animais.txt', 'a')
 		arquivo.write(animal)
 		arquivo.write('\n')
+		arquivo.close()
 		print("Legal, não conhecia esse animal.")
 		break
 	animal = input("Esse já conhecia, me diga outro: ")
 	animal = animal.lower()	
 
 
-arquivo.close()
+
