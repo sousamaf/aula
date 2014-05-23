@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-#m_dados = 
+m_dados = []
 
 '''
 A função carregar_arquivo varre todo o arquivo 
@@ -14,7 +14,7 @@ def carregar_arquivo():
 	for linha in arquivo:
 		if linha_1 > 0:
 			dados = linha.split(',')
-			print(dados)
+			m_dados.append(dados)
 		else:
 			linha_1 = linha_1 + 1
 
@@ -28,7 +28,7 @@ o conteúdo carregado para a memória será o intervalo.
 nenhum intervalo.
 '''
 def demanda_maior(dia_inicio = "", hora_inicio = "", dia_fim = "", hora_fim = ""):
-
+	pass
 '''
 A função demanda_media calcula a demanda média de
 um intervalo fornecido. Caso não seja informado um
@@ -36,7 +36,19 @@ intervalo, todo o conteúdo em memória deve ser
 considerado.
 '''
 def demanda_media(dia_inicio = "", hora_inicio = "", dia_fim = "", hora_fim = ""):
+	pass
+
+'''
+A função print_campo exibe em tela todos os valores de 
+uma coluna informada da matriz m_dados.
+'''
+def print_campo(campo):
+	for linha in m_dados:
+		print(linha[campo])
 
 
 carregar_arquivo()
+#print_campo(1)
+# Exemplo de acesso direto a uma célula da matriz.
+print(m_dados[3][1])
 
