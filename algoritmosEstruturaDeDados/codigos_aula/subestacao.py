@@ -29,6 +29,7 @@ nenhum intervalo.
 '''
 def demanda_maior(dia_inicio = "", hora_inicio = "", dia_fim = "", hora_fim = ""):
 	pass
+
 '''
 A função demanda_media calcula a demanda média de
 um intervalo fornecido. Caso não seja informado um
@@ -36,6 +37,35 @@ intervalo, todo o conteúdo em memória deve ser
 considerado.
 '''
 def demanda_media(dia_inicio = "", hora_inicio = "", dia_fim = "", hora_fim = ""):
+	pass
+
+'''
+A função potencia efetua o cálculo da potencia A, B ou
+C de um dia e hora especificado. Todos os parametros são
+obrigatórios, sendo a 'data' a data, a 'hora' uma hora 
+existente no arquivo ou a hora mais próxima superior, e 
+abc a fase A, B ou C.
+'''
+def potencia(data, hora, abc):
+	pass
+
+
+'''
+A função demanda_media_diaria_do_mes realiza o cálculo
+da média diária da demanda de um mês informado. A função
+retorna um array (vetor) contendo todas as médias diárias
+calculadas.
+'''
+def demanda_media_diaria_do_mes(mes):
+	pass
+
+'''
+A função calculo_desvio_padrao_demanda_diaria retorna o
+desvio padrão de uma média diária da demanda (data fornecida)
+em relação ao valor médio da demanda mensal. O desvio padrão
+deve ser fornecido em porcentagem. 
+'''
+def calculo_desvio_padrao_demanda_diaria(data):
 	pass
 
 '''
