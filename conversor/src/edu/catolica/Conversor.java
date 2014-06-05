@@ -23,6 +23,8 @@ public class Conversor {
 		// Variável para utilização nos laços for.
 		int i = 0;
 		
+		double resultado = 0.0;
+		
 		// Início do bloco de comandos para entrada de dados via teclado.
 		Scanner input = new Scanner(System.in);
 		String entrada = new String();
@@ -48,6 +50,14 @@ public class Conversor {
 		// Notação por excesso 3.
 		// iExpoente - 3 
 		iExpoente = iExpoente - 3;
+		
+		for(i = 0; i < sMantissa.length(); i++)
+		{
+			resultado += Integer.parseInt(sMantissa.substring(i, i+1)) * Math.pow(2, 3 - i - iExpoente);
+		}
+		
+		System.out.println(resultado);
+
 			
 	}
 	public static void main(String[] args) {
