@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/resources/templates/thiago/template_principal.xhtml">
+	<ui:define name="title">
+	    Contato
+	</ui:define>
+	<ui:define name="content">
+		<div style="min-height: 200px">
+	    	<h2>Contato</h2>
+	    	<p>
+	    	<h:form>
+	    	
+	    	
+	    	<h:panelGrid columns="2">
+	    	
+	    	<h:outputLabel for="nome" value="Nome:"/>
+	    	<h:inputText id="nome" value="#{contato.nome}" required="true" 
+	    		requiredMessage="Por favor, informe seu nome." />
+	    	
+	    	
+	    	
+	    	<h:outputLabel for="email" value="Email:"/>
+	    	<h:inputText id="email" value="#{contato.email}" />
+	    	
+	    	
+	    	
+	    	<h:outputLabel for="mensagem" value="Mensagem:"/>
+	    	<h:inputTextarea id="mensagem" value="#{contato.mensagem}" />
+	    	
+	    	<h:outputText> </h:outputText>
+	    	<h:commandButton id="enviar" action="#{contato.enviar}" value="Enviar" />
+	    	
+	    	</h:panelGrid>
+	    	</h:form>
+	    	</p>
+	    </div>
+	</ui:define>
+</ui:composition>
+</html>
