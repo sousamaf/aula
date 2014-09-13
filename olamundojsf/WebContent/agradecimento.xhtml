@@ -6,13 +6,18 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="/resources/templates/template_principal.xhtml">
+<ui:composition template="/resources/templates/thiago/template_principal.xhtml">
 	<ui:define name="title">
-	    Produtos
+	    Agradecimento
 	</ui:define>
 	<ui:define name="content">
 		<div style="min-height: 200px">
-	    	Apresentação de produtos.
+		<h:form>
+	    	<h2>Agradecimento</h2>
+	    	<p>
+	    	<h:outputText value="#{contato.nome}"/>, obrigado por entrar em contato. Logo lhe daremos um retorno.
+	    	</p>
+	    </h:form>
 	    </div>
 	</ui:define>
 </ui:composition>
