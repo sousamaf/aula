@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/resources/templates/thiago/template_principal.xhtml">
 	<ui:define name="title">
@@ -15,20 +16,37 @@
 	    	<h2>Contato</h2>
 	    	<p>
 	    	<h:form>
-	    	
-	    	
+			<p:messages id="mensagens"></p:messages>
+	    	<h:messages></h:messages>
 	    	<h:panelGrid columns="2">
 	    	
 	    	<h:outputLabel for="nome" value="Nome:"/>
 	    	<h:inputText id="nome" value="#{contato.nome}" required="true" 
-	    		requiredMessage="Por favor, informe seu nome." />
+	    		requiredMessage="Por favor, informe seu nome."
+	    		validatorMessage="Seu nome deve conter pelo menos 6 caracteres e somente letras.">
+	    		<f:validateLength minimum="6"></f:validateLength>
+	    		<f:validateRegex pattern="[a-zA-Z ]+"></f:validateRegex>
+	    		<f:ajax event="keyup" execute="nome" render="mensagens"/>
+	    	</h:inputText>
+	    	
+	    	<h:outputText id="validaUsuario2"/>
+	    	<h:outputText id="validaUsuario" value="#{contato.validaUsuario}">
+	    	</h:outputText>
 	    	
 	    	
-	    	
+	    	<h:outputLabel for="user" value="Usuário:"/>
+		    <h:inputText id="user" value="#{contato.usuario}">
+		    	<f:ajax event="blur" execute="user" render="validaUsuario" />
+		    </h:inputText>	
+
+		    	
 	    	<h:outputLabel for="email" value="Email:"/>
-	    	<h:inputText id="email" value="#{contato.email}" />
-	    	
-	    	
+	    	<h:inputText id="email" value="#{contato.email}"
+	    			required="true" 
+	    			requiredMessage="Por favor, informe seu email para contato."
+	    			validatorMessage="Informe um email válido.">
+	    			<f:validateRegex pattern="[a-z]+@[a-z]{3}\.[a-z]{2}"></f:validateRegex>
+	    	</h:inputText>
 	    	
 	    	<h:outputLabel for="mensagem" value="Mensagem:"/>
 	    	<h:inputTextarea id="mensagem" value="#{contato.mensagem}" />

@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:b="http://bootsfaces.net/ui"
+                template="/resources/templates/template_principal.xhtml">
+
+
+	<ui:define name="content">
+	    <div class="container">
+	    <div class="col-sm-6 col-md-4 col-md-offset-4">
+		<h:form styleClass="form-signin">
+			<h2 class="text-center login-title">Entrar</h2>
+				<p:panelGrid columns="1" layout="grid">
+					<p:inputText styleClass="input-block-level form-control" placeholder="Email"/>
+					<p:password styleClass="input-block-level form-control" placeholder="Senha"/>
+					<label><input type="checkbox" value="remember-me" style="checkbox"/> Permanecer conectado</label>
+					<p:commandButton type="submit" value="Conectar"  styleClass="btn btn-lg btn-large btn-primary btn-block"/>
+					<p:commandLink value="Cadastre-se" action="pessoa_cadastrar"></p:commandLink>
+				</p:panelGrid>
+		</h:form>
+		</div>
+    </div>
+	<br/>
+	</ui:define>
+</ui:composition>

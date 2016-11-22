@@ -13,8 +13,26 @@ public class Contato implements Serializable{
 	 */
 	private static final long serialVersionUID = -7566116543610565612L;
 	private String nome;
+	private String usuario;
 	private String email;
 	private String mensagem;
+	
+	
+	public String getValidaUsuario()
+	{
+		if("".equals(usuario) || usuario == null)
+		{
+			return "";
+		}
+		else if(this.usuario.equals("marco"))
+		{
+			return "Que cara lindo";
+		}
+		else
+		{
+			return "";
+		}
+	}
 	
 	public String enviar()
 	{
@@ -38,6 +56,12 @@ public class Contato implements Serializable{
 	}
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 	
 	

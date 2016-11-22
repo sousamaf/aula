@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/resources/templates/template_principal.xhtml">
+	
+	<ui:define name="content">
+	<h:form>
+	<center><h1>Conferencia de Livros</h1></center>
+	
+    <p:dataTable id="tbl" var="livro" value="#{livroController.listarLivros}"
+    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} 
+    {PageLinks} {NextPageLink} {LastPageLink} "
+                 paginator="true" rows="10" style="margin-bottom:20px">
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Titulo" />
+            </f:facet>
+            <h:outputText value="#{livro.referencia}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Publicação" />
+            </f:facet>
+            <h:outputText value="#{livro.publicacao}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Classif." />
+            </f:facet>
+            <h:outputText value="#{livro.classificacao}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Quant" />
+            </f:facet>
+            <h:outputText value="#{livro.qtd}" />
+        </p:column>
+        
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Unidade" />
+            </f:facet>
+            <h:outputText value="#{livro.unidade}" />
+        </p:column>
+    </p:dataTable>
+</h:form>
+	
+	</ui:define>
+</ui:composition>

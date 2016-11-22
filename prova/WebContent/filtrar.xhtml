@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:b="http://bootsfaces.net/ui"
+                template="/resources/templates/template_principal.xhtml">
+                
+                
+	<ui:define name="content">
+	    <div class="container">
+		<h:form styleClass="form-signin">
+			<h2 class="text-center login-title">Filtro de Pesquisa por Referencia</h2> 
+       
+    <p:dataTable var="livro" value="#{livroController.listarLivros}" 
+    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} 
+    {PageLinks} {NextPageLink} {LastPageLink} "
+                 paginator="true" rows="10" style="margin-bottom:20px"
+            emptyMessage="Nenhum livro encontrado por essa referencia">  
+  
+ 	
+        
+        <p:column  filterBy="#{livro.referencia}" 
+        headerText="Titulo - Referencia " footerText="contains"  
+                filterMatchMode="contains">  
+            <h:outputText  value="#{livro.referencia}" />  
+        </p:column>  
+  
+        <p:column  
+                headerText="Publicação" >  
+            <h:outputText value="#{livro.publicacao}" />  
+        </p:column>  
+  
+        <p:column    
+                headerText="Quantidade">  
+            <h:outputText value="#{livro.qtd}" />  
+        </p:column>  
+  
+        <p:column   
+                headerText="Unidade" >  
+            <h:outputText value="#{livro.unidade}" />  
+        </p:column>  
+    </p:dataTable>  
+      
+</h:form>
+</div>
+	</ui:define>
+</ui:composition>
+
+
+

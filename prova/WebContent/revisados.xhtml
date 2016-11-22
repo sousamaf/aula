@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/resources/templates/template_principal.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+		    <p:dataTable id="tbl" var="revisao" value="#{livroRevisaoView.revisoes}"
+		                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+		                 paginator="true" rows="10" style="margin-bottom:20px">
+		        <f:facet name="{Exporters}">
+		            <h:commandLink>
+		                <p:graphicImage library="img" name="excel_24.png" width="24"/>
+		                <p:dataExporter type="xls" target="tbl" fileName="revisoes" />
+		            </h:commandLink>
+		 
+		            <h:commandLink>
+		                <p:graphicImage library="img" name="pdf_24.png" width="24"/>
+		                <p:dataExporter type="pdf" target="tbl" fileName="revisoes"/>
+		            </h:commandLink>
+		 		</f:facet>
+		 
+		        <p:column>
+		            <f:facet name="header">
+		                <h:outputText value="Revisor" />
+		            </f:facet>
+		            <h:outputText value="#{revisao.pessoa.nome}" />
+		        </p:column>
+		 
+		        <p:column>
+		            <f:facet name="header">
+		                <h:outputText value="Livro"/>
+		            </f:facet>
+		            <h:outputText value="#{revisao.livro.nome}" />
+		        </p:column>
+		 
+		        <p:column>
+		            <f:facet name="header">
+		                <h:outputText value="Brand" />
+		            </f:facet>
+		            <h:outputText value="#{revisao.qtd}" />
+		        </p:column>
+		 
+		        <p:column>
+		            <f:facet name="header">
+		                <h:outputText value="Data" />
+		            </f:facet>
+		            <h:outputText value="#{revisao.pessoa.nome}" />
+		        </p:column>
+		    </p:dataTable>
+		 
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,37 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/resources/templates/template_principal.xhtml">
+	<ui:define name="content">
+	    <div class="container">
+	    <div class="col-sm-6 col-md-4 col-md-offset-4">
+		<h:form styleClass="form-signin">
+			<h2 class="text-center login-title">Cadastrar Usuario</h2>
+				<p:panelGrid columns="2" layout="grid">
+				
+					<p:outputLabel  for="cnome" value="Nome:"/>
+					<p:inputText id="cnome" value="#{pessoaBean.nome}" styleClass="input-block-level form-control" 
+					placeholder="nome" />
+					<p:outputLabel  for="cemail" value="E-mail:"/>
+					<p:inputText id="cemail" value="#{pessoaBean.email}" styleClass="input-block-level form-control" 
+					placeholder="email" />
+					
+					<p:outputLabel for="csenha" value="Senha:"/>
+					<p:password id="csenha" value="#{pessoaBean.senha}" styleClass="input-block-level form-control" 
+					placeholder="senha" />
+					
+					<p:outputLabel/> 
+					
+					<p:commandButton action="#{pessoaBean.cadastrar}" type="submit" value="Cadastrar"  
+					styleClass="btn btn-lg btn-large btn-primary btn-block"/>
+					
+				</p:panelGrid>
+		</h:form>
+		</div>
+    </div>
+	<br/>
+	</ui:define>
+</ui:composition>

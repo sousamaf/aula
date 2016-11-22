@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/resources/templates/template_principal.xhtml">
+             
+                
+	<ui:define name="content">
+	<div class="container">
+	    <div class="col-sm-6 col-md-4 col-md-offset-4">
+		<h:form id="form">
+		    <p:dataList value="#{pessoaView.pessoa}" var="p" type="ordered">
+		        <f:facet name="header">
+		            Usuários 
+		        </f:facet>
+		        #{p.nome}, #{p.email}
+		    </p:dataList>
+		 </h:form>
+		 </div>
+		 </div>
+	</ui:define>
+</ui:composition>
