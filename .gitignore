@@ -3,13 +3,24 @@ Servers
 .settings
 .classpath
 .project
+<<<<<<< HEAD
 *.class
 *.jar
+=======
+.class
+.jar
+
+*.class
+
+*.jar
+
+>>>>>>> Aspectos
 linguagem4/Questionarios/WebContent/META-INF/MANIFEST.MF
 
 linguagem4/Questionarios/WebContent/WEB-INF/faces-config.xml
 
 linguagem4/Questionarios/WebContent/WEB-INF/web.xml
+<<<<<<< HEAD
 
 linguagem4/testeHibernate/WebContent/WEB-INF/faces-config.xml
 
@@ -20,3 +31,5 @@ linguagem4/testeHibernate/src/br/edu/catolica/tabelas/DisciplinasDao.java
 linguagem4/testeHibernate/src/br/edu/catolica/tabelas/DisciplinasDao.java
 
 linguagem4/testeHibernate/build/classes/hibernate.cfg.xml
+=======
+>>>>>>> Aspectos
