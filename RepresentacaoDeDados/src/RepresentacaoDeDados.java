@@ -7,6 +7,31 @@ public class RepresentacaoDeDados {
 	int[] hexadecimal = new int[4];
 	Scanner entrada = new Scanner(System.in);	
 	
+	public void exibeVetores(int qual)
+	{
+		int i;
+		if(qual == 2)
+		{
+			System.out.print("[ ");
+			for(i = 0; i < 8; i++)
+				System.out.print(binario[i] + " ");
+			System.out.println("]");
+		}
+		
+		if(qual == 8)
+		{
+			for(i = 0; i < 4; i++)
+				System.out.print(octal[i] + " ");
+			System.out.println("");
+		}
+		
+		if(qual == 16)
+		{
+			//Construa aqui a exibição dos valores na base hexadecimal.
+			System.out.println("");
+		}
+	}
+	
 	public int entradaHexadecimalInt()
 	{
 		String valor = new String();
@@ -126,10 +151,13 @@ public class RepresentacaoDeDados {
 		if(decimal != null)
 		{
 			System.out.println("Valores carregados em memória:");
-			System.out.println("\tBinario \t\t = ");
-			System.out.println("\tOctal \t\t = ");
+			System.out.print("\tBinario \t\t = ");
+			exibeVetores(2);
+			System.out.print("\tOctal \t\t = ");
+			exibeVetores(8);
 			System.out.println("\tDecimal \t\t = " + decimal);
-			System.out.println("\tHexadecimal \t = ");
+			System.out.print("\tHexadecimal \t = ");
+			exibeVetores(16);
 		}
 		
 		System.out.println("Digite: ");
