@@ -7,10 +7,38 @@ public class RepresentacaoDeDados {
 	int[] hexadecimal = new int[4];
 	Scanner entrada = new Scanner(System.in);	
 	
+	public void entradaBinario()
+	{
+		System.out.println("Digite um valor binário. ");
+
+		int i;
+		for(i = 0; i < 8; i++ )
+		{
+			System.out.print("binario[ " + i +" ]: ");
+			binario[i] = entrada.nextInt();
+		}
+		
+		menu();
+	}
+	
+	public void entradaOctal()
+	{
+		System.out.print("Digite um valor octal: ");
+		decimal = entrada.nextInt();
+		menu();
+	}
+		
 	public void entradaDecimal()
 	{
 		System.out.print("Digite um valor decimal: ");
 		decimal = entrada.nextInt();
+		menu();
+	}
+	public void entradaHexadecimal()
+	{
+		System.out.print("Digite um valor hexadecimal: ");
+		decimal = entrada.nextInt();
+		menu();
 	}
 	
 	public void menu() 
@@ -22,9 +50,9 @@ public class RepresentacaoDeDados {
 		if(decimal != null)
 		{
 			System.out.println("Valores carregados em memória:");
-			System.out.println("\tBinario \t = ");
+			System.out.println("\tBinario \t\t = ");
 			System.out.println("\tOctal \t\t = ");
-			System.out.println("\tDecimal \t = ");
+			System.out.println("\tDecimal \t\t = " + decimal);
 			System.out.println("\tHexadecimal \t = ");
 		}
 		
@@ -39,16 +67,16 @@ public class RepresentacaoDeDados {
 		
 		switch (opcao) {
 		case 1:
-			
+			entradaBinario();
 			break;
 		case 2:
-			
+			entradaOctal();
 			break;
 		case 3:
 			entradaDecimal();
 			break;
 		case 4:
-			
+			entradaHexadecimal();
 			break;
 
 		default:
