@@ -7,6 +7,36 @@ public class RepresentacaoDeDados {
 	int[] hexadecimal = new int[4];
 	Scanner entrada = new Scanner(System.in);	
 	
+	public void converter2decimal()
+	{
+		
+	}
+	
+	public void converter8decimal()
+	{
+		
+	}
+	
+	public void converter10binario()
+	{
+		
+	}
+	
+	public void converter10octal()
+	{
+		
+	}
+		
+	public void converter10hexadecimal()
+	{
+		
+	}
+	
+	public void converter16decimal()
+	{
+		
+	}
+	
 	public void exibeVetores(int qual)
 	{
 		int i;
@@ -27,7 +57,8 @@ public class RepresentacaoDeDados {
 		
 		if(qual == 16)
 		{
-			//Construa aqui a exibição dos valores na base hexadecimal.
+			for(i = 0; i < 4; i++)
+				System.out.print(hexadecimal[i] + " ");
 			System.out.println("");
 		}
 	}
