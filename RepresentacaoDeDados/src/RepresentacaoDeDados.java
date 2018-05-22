@@ -54,7 +54,17 @@ public class RepresentacaoDeDados {
 	
 	public void converter16decimal()
 	{
+		int decimalParcial = 0;
+		int i = 0;
+		int p = 3;
 		
+		for(i = 0; i < 4; i++)
+		{
+			// o[n] x 8^p
+			decimalParcial += hexadecimal[i] * Math.pow(16.0, (double) p);
+			p--;
+		}
+		this.decimal = decimalParcial;			
 	}
 	
 	public void exibeVetores(int qual)
@@ -77,8 +87,7 @@ public class RepresentacaoDeDados {
 		
 		if(qual == 16)
 		{
-			for(i = 0; i < 4; i++)
-				System.out.print(hexadecimal[i] + " ");
+			exibeHexadecimal();
 			System.out.println("");
 		}
 	}
@@ -190,13 +199,53 @@ public class RepresentacaoDeDados {
 		System.out.println("Digite um valor hexadecimal.");
 		
 		int i;
+		int p = 3;
 		for(i = 0; i < 4; i++ )
 		{
-			System.out.print("hexadecimal[ " + i +" ]: ");
+			System.out.print("hexadecimal[ " + p +" ]: ");
 			hexadecimal[i] = entradaHexadecimalInt();
+			p--;
 		}
 		
+		converter16decimal();
 		menu();
+	}
+
+	public void exibeHexadecimal()
+	{
+		int i;
+		for(i = 0; i < 4; i++)
+		{
+			if(hexadecimal[i] < 10) 
+			{
+				System.out.print(hexadecimal[i]);
+			}
+			else
+			{
+				switch (hexadecimal[i]) {
+				case 10:
+					System.out.print("A");
+					break;
+				case 11:
+					System.out.print("B");
+					break;
+				case 12:
+					System.out.print("C");
+					break;
+				case 13:
+					System.out.print("D");
+					break;
+				case 14:
+					System.out.print("E");
+					break;
+				case 15:
+					System.out.print("F");
+					break;					
+				default:
+					break;
+				}
+			}
+		}
 	}
 	
 	public void menu() 
