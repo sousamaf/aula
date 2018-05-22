@@ -9,12 +9,32 @@ public class RepresentacaoDeDados {
 	
 	public void converter2decimal()
 	{
+		int decimalParcial = 0;
+		int i = 0;
+		int p = 7;
 		
+		for(i = 0; i < 8; i++)
+		{
+			// b[n] x 2^p
+			decimalParcial += binario[i] * Math.pow(2.0, (double) p);
+			p--;
+		}
+		this.decimal = decimalParcial;
 	}
 	
 	public void converter8decimal()
 	{
+		int decimalParcial = 0;
+		int i = 0;
+		int p = 3;
 		
+		for(i = 0; i < 4; i++)
+		{
+			// o[n] x 8^p
+			decimalParcial += octal[i] * Math.pow(8.0, (double) p);
+			p--;
+		}
+		this.decimal = decimalParcial;		
 	}
 	
 	public void converter10binario()
@@ -130,12 +150,15 @@ public class RepresentacaoDeDados {
 		System.out.println("Digite um valor binário. ");
 
 		int i;
+		int p = 7;
 		for(i = 0; i < 8; i++ )
 		{
-			System.out.print("binario[ " + i +" ]: ");
+			System.out.print("binario[ " + p +" ]: ");
 			binario[i] = entrada.nextInt();
+			p--;
 		}
 		
+		converter2decimal();
 		menu();
 	}
 	
@@ -144,12 +167,15 @@ public class RepresentacaoDeDados {
 		System.out.println("Digite um valor octal. ");
 		
 		int i;
+		int p = 3;
 		for(i = 0; i < 4; i++ )
 		{
-			System.out.print("octal[ " + i +" ]: ");
+			System.out.print("octal[ " + p +" ]: ");
 			octal[i] = entrada.nextInt();
+			p--;
 		}
 		
+		converter8decimal();
 		menu();
 	}
 		
