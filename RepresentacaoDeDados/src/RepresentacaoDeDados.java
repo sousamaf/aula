@@ -39,14 +39,50 @@ public class RepresentacaoDeDados {
 	
 	public void converter10binario()
 	{
+		/*
+		 * Atividade 1
+		 * Comente cada linha do método converter10Binario()
+		 * relatando o que está acontecendo/qual sua necessidade.
+		 */
+		int decimalTemp = this.decimal;
+		int divisao = 0;
+		int base = 2;
+		int i = 0;
+		int p = 7;
 		
+		String sBinario = "";
+		
+		while(decimalTemp >= base)
+		{
+			divisao = (int) decimalTemp / base;
+			sBinario += (decimalTemp - (divisao * base));
+			System.out.println("Divisao: " + divisao);
+			decimalTemp = divisao;
+		}
+		sBinario += decimalTemp;
+		
+		for(i = 0; i < 8; i++)
+		{
+			this.binario[i] = 0;
+		}
+		
+		for(i = 0; i < sBinario.length(); i++)
+		{
+			this.binario[p] = Integer.parseInt(sBinario.substring(i, (i+1)));
+			p--;
+		}
 	}
-	
+	/*
+	 * Atividade 2: Implemente a conversão da base 10 para octal. 
+	 */
 	public void converter10octal()
 	{
 		
 	}
-		
+	
+	/*
+	 * Atividade 3: Implemente a conversão da base 10 para hexadecimal. 
+	 */	
 	public void converter10hexadecimal()
 	{
 		
@@ -60,7 +96,7 @@ public class RepresentacaoDeDados {
 		
 		for(i = 0; i < 4; i++)
 		{
-			// o[n] x 8^p
+			// o[n] x 16^p
 			decimalParcial += hexadecimal[i] * Math.pow(16.0, (double) p);
 			p--;
 		}
@@ -192,6 +228,9 @@ public class RepresentacaoDeDados {
 	{
 		System.out.print("Digite um valor decimal: ");
 		decimal = entrada.nextInt();
+		
+		converter10binario();
+		
 		menu();
 	}
 	public void entradaHexadecimal()
@@ -208,6 +247,7 @@ public class RepresentacaoDeDados {
 		}
 		
 		converter16decimal();
+		converter10binario();
 		menu();
 	}
 
