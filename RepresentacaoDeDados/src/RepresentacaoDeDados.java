@@ -273,6 +273,39 @@ public class RepresentacaoDeDados {
 		menu();
 	}
 	
+	public void entradaBinarioPontoFlutuante()
+	{
+		System.out.println("Binário de Ponto flutuante");
+
+		System.out.print("Informe o valor do SINAL: ");
+		binario[0] = entrada.nextInt();
+		
+		System.out.println("\nInforme os bits do expoente:");
+		
+		int i;
+		int p = 0;
+		for(i = 3; i > 0; i-- )
+		{
+			System.out.print("expoente[ " + p +" ]: ");
+			binario[i] = entrada.nextInt();
+			p++;
+		}
+
+		System.out.println("\nInforme os bits da mantissa: ");
+		p = -1;
+		for(i = 4; i < 8; i++ )
+		{
+			System.out.print("mantissa[ " + p +" ]: ");
+			binario[i] = entrada.nextInt();
+			p--;
+		}
+
+		converter2decimal();
+		converter10octal();
+		converter10hexadecimal();
+		menu();
+	}
+	
 	public void entradaOctal()
 	{
 		System.out.println("Digite um valor octal. ");
@@ -382,6 +415,8 @@ public class RepresentacaoDeDados {
 		System.out.println("\t2 para inserir octal.");
 		System.out.println("\t3 para inserir decimal.");
 		System.out.println("\t4 para inserir hexadecimal.");
+		System.out.println("\t5 para inserir decimal em ponto flutuante.");
+		System.out.println("\t6 para inserir binário em ponto flutuante.");
 		System.out.println("\t9 para sair.");
 		
 		System.out.print("Entrada: ");
@@ -402,6 +437,11 @@ public class RepresentacaoDeDados {
 			break;
 		case 4:
 			entradaHexadecimal();
+			break;
+		case 5:
+			break;
+		case 6:
+			entradaBinarioPontoFlutuante();
 			break;
 
 		default:
