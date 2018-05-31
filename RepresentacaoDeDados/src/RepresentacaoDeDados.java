@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 public class RepresentacaoDeDados {
 	Integer decimal = (Integer) null;
 	int[] binario = new int[8];
@@ -380,11 +382,15 @@ public class RepresentacaoDeDados {
 		System.out.println("\t2 para inserir octal.");
 		System.out.println("\t3 para inserir decimal.");
 		System.out.println("\t4 para inserir hexadecimal.");
+		System.out.println("\t9 para sair.");
 		
 		System.out.print("Entrada: ");
 		opcao = entrada.nextInt();
 		
 		switch (opcao) {
+		case 9:
+			System.out.println("Saindo.");
+			break;
 		case 1:
 			entradaBinario();
 			break;
