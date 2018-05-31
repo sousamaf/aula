@@ -15,7 +15,6 @@ public class RepresentacaoDeDados {
 		
 		for(i = 0; i < 8; i++)
 		{
-			// b[n] x 2^p
 			decimalParcial += binario[i] * Math.pow(2.0, (double) p);
 			p--;
 		}
@@ -30,7 +29,6 @@ public class RepresentacaoDeDados {
 		
 		for(i = 0; i < 4; i++)
 		{
-			// o[n] x 8^p
 			decimalParcial += octal[i] * Math.pow(8.0, (double) p);
 			p--;
 		}
@@ -41,31 +39,40 @@ public class RepresentacaoDeDados {
 	{
 		/*
 		 * Atividade 1
-		 * Comente cada linha do m�todo converter10Binario()
-		 * relatando o que est� acontecendo/qual sua necessidade.
+		 * Comente cada linha do método converter10Binario()
+		 * relatando o que está acontecendo/qual sua necessidade.
+		 * 
+		 * A seguir o método com cada linha comentada.
+		 * 
 		 */
+		// Variável local para armazenar o valor decimal.
 		int decimalTemp = this.decimal;
+		// Variável utlilzada para manter o resultado parcial da divisão.
 		int divisao = 0;
+		// Variável contem o valor da base de destino da conversão.
 		int base = 2;
+		// Variável para iteração nas estruturas de repetições existentes.
 		int i = 0;
+		// Variável utilizada para manter o índice referente a posição no vetor de destino.
 		int p = 7;
-		
+		// Variável do tipo String para acumular o resto da divisão.
 		String sBinario = "";
 		
+		// Estrutura de repetição responsável pela divisão sucessíva do valor pela base.
 		while(decimalTemp >= base)
 		{
 			divisao = (int) decimalTemp / base;
 			sBinario += (decimalTemp - (divisao * base));
-			System.out.println("Divisao: " + divisao);
 			decimalTemp = divisao;
 		}
 		sBinario += decimalTemp;
 		
+		// Estrutura de repetição para inicializar/zerar o array de destino do valor convertido.
 		for(i = 0; i < 8; i++)
 		{
 			this.binario[i] = 0;
 		}
-		
+		// Estrutura de repetição para copiar o valor convertido para a posição correta no vetor de destino.
 		for(i = 0; i < sBinario.length(); i++)
 		{
 			this.binario[p] = Integer.parseInt(sBinario.substring(i, (i+1)));
@@ -73,19 +80,75 @@ public class RepresentacaoDeDados {
 		}
 	}
 	/*
-	 * Atividade 2: Implemente a convers�o da base 10 para octal. 
+	 * Atividade 2: Implemente a conversão da base 10 para octal.
+	 * A seguir uma solução viável do problema. 
 	 */
 	public void converter10octal()
 	{
+		int decimalTemp = this.decimal;
+		int divisao = 0;
+		int base = 8;
+		int i = 0;
+		int p = 3;
 		
+		String sOctal = "";
+		
+		while(decimalTemp >= base)
+		{
+			divisao = (int) decimalTemp / base;
+			sOctal += (decimalTemp - (divisao * base));
+			//System.out.println("Divisao: " + divisao);
+			decimalTemp = divisao;
+		}
+		sOctal += decimalTemp;
+		
+		for(i = 0; i < 4; i++)
+		{
+			this.octal[i] = 0;
+		}
+		
+		for(i = 0; i < sOctal.length(); i++)
+		{
+			this.octal[p] = Integer.parseInt(sOctal.substring(i, (i+1)));
+			p--;
+		}		
 	}
 	
 	/*
-	 * Atividade 3: Implemente a convers�o da base 10 para hexadecimal. 
+	 * Atividade 3: Implemente a conversão da base 10 para hexadecimal.
+	 * A seguir uma possível solução do problema.
 	 */	
 	public void converter10hexadecimal()
 	{
+		int decimalTemp = this.decimal;
+		int divisao = 0;
+		int base = 16;
+		int i = 0;
+		int p = 3;
 		
+		int[] iHex = new int[4];
+	
+		for(i = 0; i < 4; i++)
+		{
+			this.hexadecimal[i] = 0;
+			iHex[i] = 0;
+		}
+		i = 0;
+		
+		while(decimalTemp >= base)
+		{
+			divisao = (int) decimalTemp / base;
+			iHex[i] = (decimalTemp - (divisao * base));
+			decimalTemp = divisao;
+			i++;
+		}
+		iHex[i] = decimalTemp;
+		
+		for(i = 0; i < iHex.length; i++)
+		{
+			this.hexadecimal[p] = iHex[i];
+			p--;
+		}		
 	}
 	
 	public void converter16decimal()
@@ -96,7 +159,6 @@ public class RepresentacaoDeDados {
 		
 		for(i = 0; i < 4; i++)
 		{
-			// o[n] x 16^p
 			decimalParcial += hexadecimal[i] * Math.pow(16.0, (double) p);
 			p--;
 		}
@@ -192,7 +254,7 @@ public class RepresentacaoDeDados {
 	
 	public void entradaBinario()
 	{
-		System.out.println("Digite um valor bin�rio. ");
+		System.out.println("Digite um valor binário. ");
 
 		int i;
 		int p = 7;
@@ -204,6 +266,8 @@ public class RepresentacaoDeDados {
 		}
 		
 		converter2decimal();
+		converter10octal();
+		converter10hexadecimal();
 		menu();
 	}
 	
@@ -221,6 +285,8 @@ public class RepresentacaoDeDados {
 		}
 		
 		converter8decimal();
+		converter10binario();
+		converter10hexadecimal();
 		menu();
 	}
 		
@@ -230,6 +296,8 @@ public class RepresentacaoDeDados {
 		decimal = entrada.nextInt();
 		
 		converter10binario();
+		converter10octal();
+		converter10hexadecimal();
 		
 		menu();
 	}
@@ -247,6 +315,7 @@ public class RepresentacaoDeDados {
 		}
 		
 		converter16decimal();
+		converter10octal();
 		converter10binario();
 		menu();
 	}
@@ -296,7 +365,7 @@ public class RepresentacaoDeDados {
 		
 		if(decimal != null)
 		{
-			System.out.println("Valores carregados em mem�ria:");
+			System.out.println("Valores carregados em memória:");
 			System.out.print("\tBinario \t\t = ");
 			exibeVetores(2);
 			System.out.print("\tOctal \t\t = ");
