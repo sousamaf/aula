@@ -5,14 +5,10 @@ Conteúdo trabalhado em aula.
 
 Projeto público destinado aos exemplos de códigos trabalhados em sala de aula e projetos de exemplos das disciplinas.
 
-Linguagens e Técnicas de Programação IV - Desenvolvimento Web em Java (JSF, JPA, Hibernate...);
+No braço principal você encontra o material do semestre atual.
 
-Aspectos Teóricos da Computação - Máquinas de estado, Máquina de Turing;
+Inteligência Artificial
+Mineração de Dados
 
-Arquitetura de Computadores I;
-
-Arquitetura de Computadores II;
-
-Inteligência Artificial: Algoritmos Genéticos, Redes Neurais Artificiais, Lógica Fuzzy, KDD.
-
-Algoritmos e Estruturas de Dados - Python e suas estruturas.
+Os códigos foram testados desenvolvidos no Jupyter:
+https://hub.docker.com/r/sousamaf/jupyter_aula
