@@ -58,8 +58,8 @@ class AG():
     def cruzamento_simples(self, q):
         pai1 = self.pop[q[0]]
         pai2 = self.pop[q[1]]
-        desc1 = np.zeros(self.TAM_GENE, dtype=np.int)
-        desc2 = np.zeros(self.TAM_GENE, dtype=np.int)
+        desc1 = np.zeros(self.TAM_GENE, dtype=np.int32)
+        desc2 = np.zeros(self.TAM_GENE, dtype=np.int32)
 
         meio = int(self.TAM_GENE/2)
         for i in range(self.TAM_GENE):
@@ -118,6 +118,7 @@ class AG():
         return self.TAM_POP - 1
                 
     def avaliacao(self):
+        np.random.shuffle(self.pop) # Para evitar vícios no elitismo.
         for i in range(self.TAM_POP):
             peso = np.sum([self.pesos * self.pop[i]])
             self.fitness[i] = 0.0 if peso > self.capacidade else peso
@@ -151,6 +152,7 @@ class AG():
             # Cruzamento
             qtd_ind_cruzamento = self.qtd_individuos(self.TAM_POP, self.TX_CRUZAMENTO)
             qtd_cruzamento = int(qtd_ind_cruzamento/2)
+
             for i in range(qtd_cruzamento):
                 q = self.selecao(self.TAM_POP)
 
@@ -163,7 +165,7 @@ class AG():
             # Mutação
             qtd_ind_mutacao = self.qtd_individuos(self.TAM_POP, self.TX_MUTACAO)
             qtd_mutacao = int(np.ceil(qtd_ind_mutacao/2))
-
+            
             for i in range(qtd_mutacao):
                 q = self.selecao(self.TAM_POP)
                 mutantes = self.mutacao(q)
@@ -174,12 +176,13 @@ class AG():
                     self.pop_aux[pos + 1] = mutantes[1]
             
             # Elitismo 
-            pos = ((1 * i) + i) + qtd_ind_cruzamento + qtd_mutacao
-            qtd_ind_elitismo = self.qtd_individuos(self.TAM_POP, self.TX_ELITISMO)
-            self.elitismo(qtd_ind_elitismo, pos)
+            # Total de novos indivíduos gerados até o momento:
+            ind_gerados = qtd_ind_cruzamento + qtd_ind_mutacao
+            # Total de indivíduos para completar a população:  
+            qtd_ind_elitismo = self.TAM_POP - ind_gerados 
+            self.elitismo(qtd_ind_elitismo, ind_gerados)
             
             # Substituição populacional
             self.substituicao()
             g += 1
-        return np.array(melhores)
-     
+        return np.array(melhores, dtype=object)
