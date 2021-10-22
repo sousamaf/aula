@@ -21,10 +21,13 @@ class AG():
         self.fitness = np.zeros(TAM_POP)
         self.fitness_p = np.zeros(TAM_POP)
         
+        self.pesos = 0.0
+        self.capacidade = 0.0
+        
     def criar_pop_inicial(self, TAM_POP, TAM_GENE):
         return np.random.randint(0, 2, [TAM_POP, TAM_GENE])
 
-    def selecao(self, TAM_POP):
+    def selecao(self):
 #         pai1 = np.random.randint(0, TAM_POP)
 #         pai2 = np.random.randint(0, TAM_POP)
         pai1 = self.roleta()
@@ -105,7 +108,7 @@ class AG():
         return False
 
     def qtd_individuos(self, TAM_POP, taxa):
-          return int((TAM_POP * taxa) / 100)
+        return int((TAM_POP * taxa) / 100)
 
     def roleta(self):
         sorteado = np.random.uniform(0, 100)
@@ -154,7 +157,7 @@ class AG():
             qtd_cruzamento = int(qtd_ind_cruzamento/2)
 
             for i in range(qtd_cruzamento):
-                q = self.selecao(self.TAM_POP)
+                q = self.selecao()
 
                 descendentes = self.cruzamento_simples(q)
 
@@ -167,7 +170,7 @@ class AG():
             qtd_mutacao = int(np.ceil(qtd_ind_mutacao/2))
             
             for i in range(qtd_mutacao):
-                q = self.selecao(self.TAM_POP)
+                q = self.selecao()
                 mutantes = self.mutacao(q)
 
                 pos = ((1 * i) + i) + qtd_ind_cruzamento
