@@ -3,3 +3,5 @@ Servers
 .settings
 .classpath
 .project
+ia/.ipynb_checkpoints/*
+md/.ipynb_checkpoints/*
